@@ -1,4 +1,3 @@
-// const { Mongoose } = require('mongoose')
 const Users  = require('../models/User')
 
 
@@ -12,17 +11,17 @@ const userContact = {
     
         })
         await user.save()
-        .then(user =>{
-            res.json({
-                message :"user added successfully"
+            .then(() =>{
+                res.json({
+                    Message : "user added successfully"
+                })
             })
-        })
-        .catch(error=>{
-            res.json({
-                message:'an error occured'
+            .catch(error=>{
+                res.json({
+                    message:'an error occured'
+                })
             })
-        })
-    
+        
     },
     
      allAccess : async (req, res) => {
@@ -31,14 +30,12 @@ const userContact = {
       
           res.json(users)
       } catch (err) {
-          return res.status(500).json({msg: err.message})
+          return res.status(400).json({msg: err.message})
       }
       
       }
 
 }
-
-
 module.exports = userContact
 
 

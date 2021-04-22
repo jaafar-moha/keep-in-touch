@@ -1,8 +1,6 @@
 const nodemailer = require('nodemailer')
 const Users = require('../models/User')
 
-
-
 const sendMail =async (req,res)=>{
 
     const {email,subject,text}= req.body
