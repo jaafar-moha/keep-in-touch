@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import Header from './Header/Header';
 
 function Contact() {
 
@@ -16,11 +17,14 @@ function Contact() {
     
     const submit = e => {
         e.preventDefault();
-        axios.post("http://localhost:3000/api/contact" , user)
+        axios.post("http://localhost:3000/api/Addcontact" , user)
+        alert("All is good");
         
     }
+   
 
    const form = () =>(
+       
         <form onSubmit={submit}>
             <div className="from-group">
                 <label htmlFor="first_name" className="text-muted">Name</label>
@@ -50,6 +54,7 @@ function Contact() {
    )
    return (
     <div>
+         <div>  <Header /></div>
        <div title="Contact Us">
            <div className="row">
                <div className="col-md-6 mx-auto">

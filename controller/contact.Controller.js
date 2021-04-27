@@ -2,7 +2,7 @@ const Users  = require('../models/User')
 
 
 const userContact = {
-     contact : async (req,res,next)=>{
+     Addcontact : async (req,res,next)=>{
         const user = new Users({
            name: req.body.name,
            email:req.body.email,
@@ -24,9 +24,9 @@ const userContact = {
         
     },
     
-     allAccess : async (req, res) => {
+     allContact : async (req, res) => {
         try {
-          const users = await Users.find(req.user)
+          const users = await Users.find()
       
           res.json(users)
       } catch (err) {
@@ -34,6 +34,7 @@ const userContact = {
       }
       
       }
+      
 
 }
 module.exports = userContact

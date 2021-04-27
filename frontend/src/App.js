@@ -1,15 +1,19 @@
-
+import React from 'react';
+import {BrowserRouter as Router ,Route,Switch} from 'react-router-dom'
 import './App.css';
-import Header from './Components/Header/Header';
 import Contact from './Components/contact';
+import Home from './Components/Home'
+import Reply from './Components/Reply';
 
-function App() {
+const App = ()=> {
   return (
-    <div className="App">
-      <Header />
-      <Contact/>
-
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route  path="/add" component={Contact} />
+        <Route  path="/Reply/:id" component={Reply} />
+      </Switch>
+    </Router>
   );
 }
 

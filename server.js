@@ -1,13 +1,16 @@
 const express = require ('express');
 const mongoose = require('mongoose');
-const AuthRouter = require('./routers/Auth')
+const CoRouter = require('./routers/contact')
 const dbConfig = require('./config/db.config');
-const bodyPrser=require('body-parser')
+const bodyPrser=require('body-parser');
+const cors = require('cors')
 const app = express();
-app.use(bodyPrser.json());
-app.use(bodyPrser.urlencoded({extended : true}));
 
 
+app.use(express.json());
+app.use(express.urlencoded({extended : true}));
+
+app.use(cors())
 app.get('/api',(req,res)=> res.send('its working'));
 
 app.listen(process.env.port || 3000,function(){
@@ -25,5 +28,5 @@ mongoose.connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
     console.error("Connection error", err);
   });
 
-  app.use('/api',AuthRouter)
+  app.use('/api',CoRouter)
 
